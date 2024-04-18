@@ -121,8 +121,8 @@ if __name__ == "__main__":
     healthy_weeks_list = list(healthy_weeks.keys())
     healthy_weeks_list.sort(reverse=False)
 
-    header = ["Week ID", "Month", "Days", "Healthy Days", "Days with Nutr.", "Avg Fat", "Fat by Kg", "Avg Sat.F",
-              "Avg Fiber","Avg Prot", "Prot by Kg", "Avg Carbs", "Avg Sug", "Tot Exer.", "Avg Exer", "Avg Weight"]
+    header = ["Week ID", "Month", "Days", "Days Logged", "Days with Nutr.", "Avg Fat", "Fat by Kg", "Avg Sat.F",
+              "Avg Fiber","Avg Prot", "Prot by Kg", "Avg Carbs", "Carb by Kg", "Avg Sug", "Tot Exer.", "Avg Exer", "Avg Weight"]
     pretty_table = PrettyTable(header)
     for sorted_week in healthy_weeks_list:
         healthy_week = healthy_weeks[sorted_week]
@@ -138,10 +138,11 @@ if __name__ == "__main__":
         avg_prot = healthy_week.avarage_protein
         prot_by_kg = healthy_week.protein_by_kg
         avg_carbs = healthy_week.avarage_carbohydrate
+        carb_by_kg = healthy_week.carbohydrate_by_kg
         avg_sugar = healthy_week.avarage_sugar
         total_exer = healthy_week.total_exercise
         avg_exer = healthy_week.avarage_exercise
         avg_weight = healthy_week.avarage_weight
         pretty_table.add_row([week_id, month, days, healthy_days,healthy_days_w_nutr,avg_fat, fat_by_kg, avg_sat_fat,
-                              avg_fiber,avg_prot,prot_by_kg, avg_carbs, avg_sugar, total_exer, avg_exer, avg_weight])
+                              avg_fiber,avg_prot,prot_by_kg, avg_carbs,carb_by_kg, avg_sugar, total_exer, avg_exer, avg_weight])
     print(pretty_table)
